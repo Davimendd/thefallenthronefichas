@@ -1,0 +1,461 @@
+/* --- Variáveis de Cor --- */
+:root {
+    --bg-dark: #121212; /* Preto Asfalto */
+    --panel-dark: #1e1e1e; /* Cinza Chumbo */
+    --gold-old: #cda434; /* Ouro Envelhecido */
+    --gold-bright: #f4d06f; /* Ouro Brilhante para Hover */
+    --blood-red: #8b0000; /* Vermelho Sangue */
+    --text-main: #e0e0e0; /* Branco Sujo */
+    --parchment-bg: #fdf6e3; /* Cor base do pergaminho */
+    --parchment-lines: #e4dabc; /* Linhas do pergaminho */
+    --font-heading: 'Cinzel', serif; /* Fonte de títulos GoT */
+    --font-body: 'EB Garamond', serif; /* Fonte de leitura */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--gold-old);
+    padding-bottom: 20px;
+}
+
+.main-header h1 {
+    font-family: var(--font-heading);
+    color: var(--gold-old);
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.main-header p {
+    font-style: italic;
+    opacity: 0.8;
+    color: var(--text-main);
+}
+
+.main-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.creation-panel {
+    flex: 1; 
+    background-color: var(--panel-dark);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    height: fit-content;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    border-left: 4px solid var(--blood-red);
+    padding-left: 10px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    color: var(--gold-old);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+}
+
+.row .input-group {
+    flex: 1;
+}
+
+input, select, textarea {
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid #444;
+    color: var(--text-main);
+    padding: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold-old);
+    box-shadow: 0 0 5px rgba(205, 164, 52, 0.5);
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+select {
+    cursor: pointer;
+    appearance: none; 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="gold"><polygon points="0,0 10,0 5,10"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+/* --- Botões --- */
+.btn-main {
+    width: 100%;
+    background: linear-gradient(45deg, var(--blood-red), #5e0000);
+    color: white;
+    font-family: var(--font-heading);
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.btn-main:hover {
+    background: linear-gradient(45deg, #a00000, var(--blood-red));
+    transform: translateY(-2px);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--gold-old);
+    color: var(--gold-old);
+    padding: 10px 20px;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(205, 164, 52, 0.1);
+    color: var(--gold-bright);
+}
+
+/* --- Visualização da Ficha (Direita) --- */
+.sheet-display {
+    flex: 1.5; 
+    text-align: center;
+}
+
+.parchment-sheet {
+    background-color: var(--parchment-bg);
+    
+    background-image: 
+        linear-gradient(rgba(228, 218, 188, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(228, 218, 188, 0.3) 1px, transparent 1px),
+        radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.05) 100%);
+    background-size: 20px 20px, 20px 20px, 100% 100%;
+    
+    color: #333; 
+    padding: 50px;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.7);
+    text-align: left;
+    min-height: 600px;
+    
+    
+    border: 10px solid transparent;
+    border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path d="M0,0 H50 V50 H0 Z" fill="none" stroke="%23cda434" stroke-width="2"/></svg>') 10 stretch;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Estilização INTERNA da Ficha Gerada (via JS) --- */
+.sheet-header-visual {
+    text-align: center;
+    border-bottom: 2px solid #8b4513; /* Marrom couro */
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.sheet-header-visual h1 {
+    font-family: var(--font-heading);
+    color: #1a1a1a;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.sheet-header-visual .subtitle {
+    font-style: italic;
+    color: #555;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 5px;
+}
+
+.info-item strong {
+    font-family: var(--font-heading);
+    color: #8b4513;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.about-section-visual {
+    margin-top: 30px;
+}
+
+.about-section-visual h3 {
+    font-family: var(--font-heading);
+    color: #1a1a1a;
+    border-bottom: 1px solid #8b4513;
+    margin-bottom: 10px;
+}
+
+.about-section-visual p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #222;
+    white-space: pre-wrap; 
+}
+
+
+/* --- Estilização do Input de Arquivo Customizado --- */
+.file-input-group input[type="file"] {
+    display: none; 
+}
+
+.btn-file-label {
+    display: inline-block;
+    background-color: #333;
+    color: var(--gold-old);
+    padding: 10px 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-file-label:hover {
+    background-color: #444;
+    border-color: var(--gold-old);
+}
+
+.file-name-text {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* --- Layout da Foto INTERNA na Ficha (Pergaminho) --- */
+
+.sheet-header-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 2px solid #8b4513; /* Marrom couro */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+/* A foto em si */
+.char-photo-frame {
+    width: 120px;
+    height: 120px;
+    border: 4px solid #8b4513; /* Moldura de couro */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    overflow: hidden; /* Corta o que sair da moldura */
+    background-color: #eee; /* Cor de fundo caso não tenha imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Impede que a foto esmague se o nome for longo */
+}
+
+.char-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+}
+
+/* Ícone de placeholder caso não haja foto */
+.photo-placeholder {
+    font-size: 3rem;
+    color: #ccc;
+}
+
+/* Ajuste no cabeçalho visual para alinhar com a foto */
+.sheet-header-visual-with-photo {
+    flex: 1;
+    text-align: left; 
+}
+
+.sheet-header-visual-with-photo h1 {
+    font-family: var(--font-heading);
+    color: #1a1a1a;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+
+.origin-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    margin-top: 5px;
+}
+
+.origin-nobre {
+    background-color: #d4af37; /* Ouro */
+    color: #000;
+}
+
+.origin-plebeu {
+    background-color: #555; /* Cinza/Ferro */
+    color: #fff;
+}
+
+.attributes-container {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.attributes-container h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: #8b4513;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.attr-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.attr-box {
+    text-align: center;
+    background: #1a1a1a;
+    color: var(--gold-old);
+    padding: 10px;
+    border-radius: 4px;
+    min-width: 60px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.attr-box span {
+    display: block;
+    font-size: 0.7rem;
+    font-family: var(--font-heading);
+    border-bottom: 1px solid #444;
+    margin-bottom: 5px;
+}
+
+.attr-box strong {
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+}
+
+.status-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.status-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.status-item span {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.status-item strong {
+    font-size: 1.8rem;
+    font-family: var(--font-heading);
+}
+
+
+.status-item.life {
+    background-color: rgba(139, 0, 0, 0.1); /* Fundo leve vermelho */
+    border-bottom: 4px solid #8b0000;
+    color: #8b0000;
+}
+
+.status-item.defense {
+    background-color: rgba(70, 130, 180, 0.1); /* Fundo leve aço/azul */
+    border-bottom: 4px solid #4682b4;
+    color: #2c3e50;
+}
+
+.save-controls {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #444;
+}
