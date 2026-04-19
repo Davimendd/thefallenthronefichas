@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fallen Throne - Criador de Ficha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>The Fallen Throne</h1>
+        <p>Forge your destiny in Westeros</p>
+    </header>
+
+    <div class="main-container">
+        
+        <aside class="creation-panel">
+            <div class="input-group">
+             <label>Suas Fichas Salvas</label>
+             <div style="display: flex; gap: 10px;">
+             <select id="saved-sheets-list" onchange="loadSpecificSheet()" style="flex: 2;">
+             <option value="">-- Nova Ficha --</option>
+                 </select>
+                <button type="button" onclick="createNewSheet()" class="btn-secondary" style="flex: 1; padding: 5px;">➕ Nova</button>
+          </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #444; margin: 20px 0;">
+            <h2 class="section-title">Crie seu Personagem</h2>
+            <form id="sheet-form">
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="char-name" placeholder="Ex: Jon Snow">
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Casa</label>
+                        <select id="house">
+                            <option value="Sem Casa">Nenhuma / Bastardo</option>
+                            <option value="Stark">Casa Stark</option>
+                            <option value="Lannister">Casa Lannister</option>
+                            <option value="Targaryen">Casa Targaryen</option>
+                            <option value="Baratheon">Casa Baratheon</option>
+                            <option value="Tyrell">Casa Tyrell</option>
+                            <option value="Arryn">Casa Arryn</option>
+                            <option value="Casa Menor">Casa Menor</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+        <label>Origem Social</label>
+        <select id="origin" onchange="updateClasses()">
+            <option value="Plebeu">Plebeu (Povo Comum)</option>
+            <option value="Nobre">Nobreza (Lorde / Lady)</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label>Classe / Ofício</label>
+        <select id="char-class">
+            </select>
+    </div>
+                </div>
+
+                <div class="input-group file-input-group">
+                     <label>Aparência (Imagem)</label>
+                      <label for="char-image" class="btn-file-label">
+                     <span class="icon">📷</span> Selecionar Imagem
+                     </label>
+                     <input type="file" id="char-image" accept="image/*" onchange="previewImage(this)">
+                     <div id="file-name-preview" class="file-name-text">Nenhum arquivo selecionado</div>
+                </div>
+
+                <div class="row tripartite">
+                    <div class="input-group">
+                        <label>Idade</label>
+                        <input type="number" id="age" placeholder="25">
+                    </div>
+                    <div class="input-group">
+                        <label>Gênero</label>
+                        <input type="text" id="gender" placeholder="Masculino">
+                    </div>
+                    <div class="input-group">
+                        <label>Altura</label>
+                        <input type="text" id="height" placeholder="1.80m">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>História & Biografia</label>
+                    <textarea id="about" placeholder="Conte a jornada do seu personagem..."></textarea>
+                </div>
+
+                <button type="button" class="btn-main" onclick="generateSheet()">
+                    <span class="icon">⚔️</span> Gerar Ficha
+                </button>
+            </form>
+                            <div class="save-controls">
+                     <button type="button" class="btn-main" onclick="generateSheet(); saveToLocalStorage();">
+                        <span class="icon">⚔️</span> Gerar e Salvar
+                     </button>
+                     <button type="button" class="btn-secondary" onclick="clearSavedData()" style="margin-top: 10px; width: 100%; border-color: #8b0000; color: #8b0000;">
+                      🗑️ Apagar Ficha Salva
+                    </button>
+                </div>
+        </aside>
+
+        <main class="sheet-display">
+            <h2 class="section-title">Visualização da Ficha</h2>
+            
+            <div id="character-sheet" class="parchment-sheet hidden">
+                </div>
+
+            <div class="action-buttons hidden" id="action-buttons">
+                <button class="btn-secondary" onclick="saveToLocalStorage()">
+                    💾 Salvar no Navegador
+                </button>
+                <button class="btn-secondary" onclick="downloadSheet()">
+                    📥 Baixar Arquivo
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
