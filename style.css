@@ -459,3 +459,322 @@ select {
     padding-top: 20px;
     border-top: 1px dashed #444;
 }
+
+
+
+.ability-container {
+    margin-top: 25px;
+    border: 2px solid #8b4513;
+    background: rgba(139, 69, 19, 0.05);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.ability-header {
+    text-align: center;
+    border-bottom: 1px solid #8b4513;
+    margin-bottom: 10px;
+}
+
+.ability-header h3 {
+    font-size: 0.7rem;
+    color: #8b0000;
+    letter-spacing: 2px;
+}
+
+.ability-header h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: #1a1a1a;
+}
+
+.ability-desc {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.ability-roll {
+    background: #1a1a1a;
+    color: var(--gold-old);
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.ability-table {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+.ability-table li {
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* style.css */
+.parchment-sheet {
+    /* ... seus estilos anteriores ... */
+    overflow: hidden; /* Garante que nada saia da borda no print */
+    height: auto;     /* Deixa a ficha crescer conforme o conteúdo */
+    min-height: 800px;
+}
+
+/* Isso evita que o botão apareça dentro da foto caso você use seletores genéricos */
+#action-buttons {
+    margin-top: 20px;
+}
+
+/* --- TEMAS DA FICHA --- */
+
+/* 1. CLÁSSICO (O que já tínhamos) */
+.theme-classic {
+    background-color: #fdf6e3;
+    border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><path d="M0,0 H50 V50 H0 Z" fill="none" stroke="%238b4513" stroke-width="2"/></svg>') 10 stretch;
+    color: #1a1a1a;
+}
+
+/* 2. NOITE ESTELAR (Escuro Nobre) */
+/* 2. NOITE ESTELAR (Ajustado para Máximo Contraste) */
+.theme-dark {
+    background-color: #0d0f12 !important; /* Cor sólida de segurança */
+    /* ... resto do código ... */
+    background-color: #0d0f12; /* Um azul-escuro quase preto, mais profundo */
+    background-image: 
+        radial-gradient(circle at 50% 10%, #1a1d23 0%, #0d0f12 100%),
+        url('https://www.transparenttextures.com/patterns/stardust.png'); /* Adiciona um leve efeito de estrelas */
+    border: 3px solid #cda434;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8); /* Sombra interna para dar profundidade */
+    color: #e0e0e0;
+}
+
+/* Títulos mais vivos para destacar no fundo escuro */
+.theme-dark h1, 
+.theme-dark h3, 
+.theme-dark h4 { 
+    color: #ffcc33 !important; /* Um dourado mais brilhante */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Caixas de Atributos e Informações com fundo levemente mais claro que o fundo principal */
+.theme-dark .attr-box, 
+.theme-dark .info-item,
+.theme-dark .status-item {
+    background: rgba(255, 255, 255, 0.05); /* Cria um relevo sutil */
+    border: 1px solid rgba(205, 164, 52, 0.3);
+    border-radius: 4px;
+}
+
+/* Destaque para os valores numéricos */
+.theme-dark strong {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Linhas separadoras */
+.theme-dark .ability-table li { 
+    border-bottom: 1px solid rgba(205, 164, 52, 0.15); 
+}
+
+/* Ajuste na biografia para não cansar o olho */
+.theme-dark .about-section-visual p {
+    color: #b0b0b0; /* Texto longo um pouco mais cinza para conforto */
+    line-height: 1.6;
+}
+
+/* 3. INVERNO (Tons de Azul e Branco) */
+.theme-snow {
+    background-color: #f0f8ff;
+    background-image: linear-gradient(135deg, #ffffff 25%, #e6f2ff 100%);
+    border: 4px double #4682b4;
+    color: #2c3e50;
+}
+.theme-snow h1, .theme-snow .status-item.life { color: #4682b4 !important; }
+.theme-snow .char-photo-frame { border-color: #4682b4; }
+
+/* 4. FOGO DRAGÃO (Preto e Vermelho Brasa) */
+/* 4. FOGO DRAGÃO (Estilo Magma e Aço) */
+.theme-fire {
+    background-color: #0a0a0a !important; /* Cor sólida de segurança */
+    /* ... resto do código ... */
+    background-color: #0a0a0a;
+    background-image: 
+        radial-gradient(circle at 50% 0%, #2a0505 0%, #0a0a0a 100%),
+        url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); /* Textura sutil de escamas/fibra */
+    border: 4px solid #b22222;
+    box-shadow: 0 0 30px rgba(178, 34, 34, 0.3), inset 0 0 100px rgba(0,0,0,0.9);
+    color: #e5e5e5;
+}
+
+/* Títulos com efeito de incandescência */
+.theme-fire h1 {
+    color: #ff4500 !important;
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.6), 2px 2px 2px #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.theme-fire h3, .theme-fire h4 {
+    color: #ff6347 !important; /* Tom de tomate mais claro para leitura */
+}
+
+/* Caixas de Status (Vida e Defesa) - Estilo Brasa */
+.theme-fire .status-item {
+    background: linear-gradient(145deg, #1a0000, #330000);
+    border: 1px solid #ff4500;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.2);
+}
+
+.theme-fire .status-item strong {
+    color: #ffffff;
+    text-shadow: 0 0 8px #ff4500;
+}
+
+/* Grid de Atributos e Informações */
+.theme-fire .attr-box {
+    background: rgba(255, 69, 0, 0.05);
+    border: 1px solid rgba(255, 69, 0, 0.3);
+}
+
+.theme-fire .attr-box strong {
+    color: #ffcc00; /* Ouro para os números de atributos */
+}
+
+.theme-fire .info-item {
+    border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+    color: #cccccc;
+}
+
+.theme-fire .info-item strong {
+    color: #ff4500; /* Destaque nas etiquetas */
+}
+
+/* Habilidade de Classe - Card de Pergaminho Queimado */
+.theme-fire .ability-container {
+    background: rgba(20, 0, 0, 0.8);
+    border-left: 4px solid #ff4500;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.theme-fire .ability-table li {
+    border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+}
+
+.theme-fire .ability-table li strong {
+    color: #ff6347;
+}
+
+/* Biografia */
+.theme-fire .about-section-visual p {
+    color: #d1d1d1;
+    border-left: 2px solid #330000;
+    padding-left: 10px;
+}
+
+/* 5. ILHAS DE FERRO (Cinza Metálico e Musgo) */
+/* 5. ILHAS DE FERRO (Aço, Sal e Rocha) */
+.theme-iron {
+    background-color: #2c3e50 !important; /* Cor sólida de segurança */
+    /* ... resto do código ... */
+    background-color: #2c3e50; /* Tom azul-acinzentado profundo */
+    background-image: 
+        linear-gradient(180deg, rgba(44, 62, 80, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%),
+        url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Textura de rocha/asfalto */
+    border: 5px solid #7f8c8d;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+    color: #ecf0f1;
+}
+
+/* Título estilo metal batido */
+.theme-iron h1 {
+    color: #bdc3c7 !important; /* Prata */
+    text-shadow: 1px 1px 0px #eee, 3px 3px 5px #000;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+}
+
+.theme-iron h3, .theme-iron h4 {
+    color: #3498db !important; /* Azul oceano metálico para destacar subtítulos */
+    border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+/* Status de Vida e Defesa - Estilo Placas de Metal */
+.theme-iron .status-item {
+    background: #1a252f;
+    border: 2px solid #7f8c8d;
+    border-radius: 0; /* Mais quadrado e rústico */
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%); /* Corte diagonal nas pontas */
+}
+
+.theme-iron .status-item.life strong {
+    color: #e74c3c; /* Vermelho sangue para a vida sobre o metal */
+}
+
+.theme-iron .status-item.defense strong {
+    color: #3498db; /* Azul frio para a defesa */
+}
+
+/* Atributos - Contraste Elevado */
+.theme-iron .attr-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #95a5a6;
+}
+
+.theme-iron .attr-box span {
+    color: #bdc3c7;
+    font-size: 0.7rem;
+}
+
+.theme-iron .attr-box strong {
+    color: #ffffff; /* Máximo contraste nos números */
+    font-size: 1.4rem;
+}
+
+/* Grid de Informações */
+.theme-iron .info-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 5px 10px;
+    border-left: 3px solid #34495e;
+    margin-bottom: 2px;
+}
+
+.theme-iron .info-item strong {
+    color: #3498db;
+}
+
+/* Habilidade de Classe - Estilo Corrente de Ferro */
+.theme-iron .ability-container {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #7f8c8d;
+    position: relative;
+}
+
+.theme-iron .ability-roll {
+    background: #7f8c8d;
+    color: #1a252f;
+    font-weight: bold;
+}
+
+.theme-iron .ability-table li {
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+}
+
+/* Biografia */
+.theme-iron .about-section-visual p {
+    color: #bdc3c7;
+    font-style: italic;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* No seu CSS geral da ficha, adicione: */
+.parchment-sheet {
+    min-height: fit-content;
+    display: block; /* Garante que o bloco seja sólido para o print */
+    overflow: visible; /* Evita cortes pretos */
+}

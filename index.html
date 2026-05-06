@@ -11,7 +11,7 @@
 
     <header class="main-header">
         <h1>The Fallen Throne</h1>
-        <p>Forge your destiny in Westeros</p>
+        <p>Forje seu destino em Westeros</p>
     </header>
 
     <div class="main-container">
@@ -87,6 +87,18 @@
                     </div>
                 </div>
 
+                <!-- index.html -->
+                <div class="input-group">
+                    <label>Tema da Ficha</label>
+                  <select id="sheet-theme" onchange="generateSheet()">
+                   <option value="theme-classic">📜 Pergaminho Clássico</option>
+                   <option value="theme-dark">🌑 Noite Estelar (Modo Escuro)</option>
+                   <option value="theme-snow">❄️ Inverno (Neve/Stark)</option>
+                   <option value="theme-fire">🔥 Fogo Dragão (Targaryen)</option>
+                   <option value="theme-iron">⚓ Homens de Ferro (Rústico/Metal)</option>
+                  </select>
+                </div>
+
                 <div class="input-group">
                     <label>História & Biografia</label>
                     <textarea id="about" placeholder="Conte a jornada do seu personagem..."></textarea>
@@ -123,6 +135,7 @@
         </main>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
